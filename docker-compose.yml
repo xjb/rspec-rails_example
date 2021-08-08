@@ -8,7 +8,11 @@ services:
         UID: 1000
         GROUP: ${USER}
         GID: 1000
-    command: tail -f
+    command: ["bin/rails", "server", "-b", "0.0.0.0"]
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
     volumes:
       - .:/app
       - bundle:/usr/local/bundle
