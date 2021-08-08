@@ -1,7 +1,13 @@
 version: "3.9"
 services:
   ap:
-    build: .docker/ap
+    build:
+      context: .docker/ap
+      args:
+        USER: ${USER}
+        UID: 1000
+        GROUP: ${USER}
+        GID: 1000
     command: tail -f
     volumes:
       - .:/app
