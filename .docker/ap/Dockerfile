@@ -13,6 +13,13 @@ RUN if [ -n "${USER}" ]; then \
         echo "${USER} ALL=NOPASSWD: ALL" > "/etc/sudoers.d/99-${USER}" ;\
     fi
 
+# install dev packages
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        sqlite3 \
+        less \
+        vim \
+    ; apt-get clean; rm -rf /var/lib/apt/lists/*
+
 USER ${USER:-root}
 
 WORKDIR /app
