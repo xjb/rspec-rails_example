@@ -17,5 +17,8 @@ ARG APP_VERSION=v0.0.0
 RUN curl -L https://github.com/xjb/rspec-rails_example/archive/refs/tags/${APP_VERSION}.tar.gz | tar zx --strip-components=1 && \
     bundle install
 
+COPY entrypoint.sh /
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+
 EXPOSE 3000
 CMD ["bin/rails", "server", "-b", "0.0.0.0"]
