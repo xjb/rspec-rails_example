@@ -7,6 +7,10 @@ ARG GID=${UID:-1000}
 RUN if [ -n "${USER}" ]; then \
         groupadd --gid ${GID} ${GROUP} && \
         useradd --create --shell /bin/bash --gid ${GROUP} --uid ${UID:-1000} ${USER} ;\
+        # enable sudo
+        apt-get update && apt-get install -y --no-install-recommends sudo ;\
+        apt-get clean; rm -rf /var/lib/apt/lists/* ;\
+        echo "${USER} ALL=NOPASSWD: ALL" > "/etc/sudoers.d/99-${USER}" ;\
     fi
 
 USER ${USER:-root}
