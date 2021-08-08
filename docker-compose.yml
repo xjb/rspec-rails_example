@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   ap:
-    image: ruby:3.0.2
+    build: .docker/ap
     command: tail -f
     volumes:
       - .:/app
-    working_dir: /app
