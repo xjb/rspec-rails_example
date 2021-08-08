@@ -11,3 +11,7 @@ services:
     command: tail -f
     volumes:
       - .:/app
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
