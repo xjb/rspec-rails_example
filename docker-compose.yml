@@ -15,3 +15,11 @@ services:
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
     volumes:
       - .:/app
+
+  chrome:
+    image: selenium/standalone-chrome:4.0.0
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    environment:
+      VNC_NO_PASSWORD: 1
