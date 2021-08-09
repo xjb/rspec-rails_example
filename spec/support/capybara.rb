@@ -2,12 +2,13 @@ Capybara.configure do |config|
 end
 
 Capybara.register_driver :remote_chrome do |app|
-  args = [
-    'no-sandbox',
-    'headless',
-    'disable-gpu',
-    'window-size=1680,1050'
+  args = %w[
+    no-sandbox
+    window-size=1680,1050
   ]
+  headless = ActiveModel::Type::Boolean.new.cast(ENV.fetch('SELENIUM_HEADLESS') { true })
+  args += %w[headless disable-gpu] if headless
+
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
     'goog:chromeOptions' => {
       'args' => args
