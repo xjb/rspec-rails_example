@@ -14,4 +14,5 @@ Rails.application.config.generators do |g|
   #   routing_specs: false,
   #   fixture: true
   # g.fixture_replacement :factory_bot, dir: 'spec/support/factories'
+  # g.templates = [File.expand_path("lib/override/templates", Rails.root)]
 end
