@@ -36,8 +36,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver', '>= 4.0.0beta'
+  gem 'capybara', require: false
+  gem 'selenium-webdriver', '>= 4.0.0beta', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,3 +1,6 @@
+require 'capybara'
+require 'selenium-webdriver'
+
 Capybara.configure do |config|
 end
 
