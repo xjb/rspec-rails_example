@@ -25,7 +25,7 @@ group :development, :test do
   gem 'faker', require: false
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'simplecov', require: false
